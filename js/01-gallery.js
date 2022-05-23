@@ -53,4 +53,18 @@ function modalShow(src) {
 instance.show();
 }
 
+function addListener() {
+    window.addEventListener('keydown', onEscClick);
+}
+
+function onEscClick(event) {
+    if (event.code === 'Esc') {
+        instance.close();
+    }
+}
+
+function removeListener() {
+    window.removeEventListener ('keydown', onEscClick)
+}
+
 

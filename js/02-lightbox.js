@@ -23,6 +23,8 @@ const galleryElements = document.querySelector(".gallery");
 
 galleryElements.insertAdjacentHTML("beforeend", createGalleryMarkup);
 
+// ------ Add caption display to image from alt attribute according to the code from the library (SimpleLightbox). ------
+
 let gallery = new SimpleLightbox(".gallery a", {
   captions: true,
   captionsdata: "alt",

@@ -39,7 +39,7 @@ function onGalleryClick(evt) {
   // console.log(evt.target.nodeName);
 }
 
-// ------------ Create modalShow() according to the code from the library. ------------
+// ------------ Create modalShow() according to the code from the library (basicLightbox). ------------
 
 let instance;
 function modalShow(src) {

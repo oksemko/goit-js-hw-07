@@ -3,6 +3,9 @@ import { galleryItems } from "./gallery-items.js";
 
 console.log(galleryItems);
 
+
+// ------------ Create and render markup according to gallery template. --------------
+
 const createGalleryItemMarkup = ({ preview, original, description }) => {
   return `
   <div class="gallery__item">
@@ -21,15 +24,23 @@ const createGalleryMarkup = galleryItems.map(createGalleryItemMarkup).join("");
 
 const galleryElements = document.querySelector('.gallery');
 
+galleryElements.insertAdjacentHTML('beforeend', createGalleryMarkup);
+
 galleryElements.addEventListener('click', onGalleryClick);
 
-function onGalleryClick(event) => {
+// --------------- We check if click on 'IMG' via nodeName. ----------------------
+
+function onGalleryClick(event) {
     if (event.target.nodeName !== 'IMG') {
         return;
     }
     event.preventDefault();
-    modalShow(event.target.dataset.source);
+  modalShow(event.target.dataset.source);
+  
+  console.log(event.target.nodeName);
 }
+
+
 
 
 let instance;
@@ -44,7 +55,7 @@ function modalShow(src) {
             onShow: instance => {
                 addListener();
             }
-          onClose {
+          onClose: instance => {
             removeListener();
           },  
         },
